@@ -14,8 +14,8 @@ _logger = logging.getLogger(__name__)
 class Element:
     name: str
     string: str
-    position: int
-    length: int
+    start: int
+    size: int
     number: int = 0
     justify: Literal["left", "right"] = "left"
     required: bool = False
@@ -27,22 +27,18 @@ class Element:
     __exclude__ = ["_value"]
 
     @property
-    def start(self) -> int:
-        return self.position - 1
-
-    @property
     def end(self) -> int:
-        return self.position - 1 + self.length
+        return self.start + self.size
 
     def truncate(self, value: str) -> str:
-        return value[: self.length]
+        return value[: self.size]
 
     def parse(
         self, value: str, truncate: bool = False
     ) -> str | int | float | ExceededSize:
         """Parse raw value according to element configuration and return the result."""
 
-        if not is_equal(value, self.length):
+        if not is_equal(value, self.size):
             if not truncate:
                 raise ExceededSize(f"{self.name}: '{value}'")
             value = self.truncate(value)
@@ -80,7 +76,7 @@ class Element:
     ) -> None | ExceededSize:
         """Store value, nothing else."""
 
-        if not is_equal(value, self.length):
+        if not is_equal(value, self.size):
             # Integer or float can't be truncate...
             if isinstance(value, (int, float)):
                 raise ExceededSize(f"{self.name}: '{value}'")
@@ -88,10 +84,10 @@ class Element:
 
         self._value = value
 
-    def dump(self, separator: str = DEFAULT_SEPARATOR) -> str | RequiredElementMissing:
+    def dump(self, fill: str = DEFAULT_SEPARATOR) -> str | RequiredElementMissing:
         """Get value ready for export."""
 
-        sep = " " if separator == "space" else separator
+        sep = " " if fill == "space" else fill
         if self._value is None and self.default:
             value = self.default
         else:
@@ -100,20 +96,20 @@ class Element:
         if value is None:
             if self.required:
                 raise RequiredElementMissing(self.name)
-            return sep * self.length
+            return sep * self.size
 
         if self.converter:
             value = Converter.by_name(self.converter).output(value)
 
         value = str(value)
 
-        diff = self.length - len(value)
+        diff = self.size - len(value)
         if diff <= 0:
             return value
 
         if self.justify == "right":
-            return value.rjust(self.length, sep)
-        return value.ljust(self.length, sep)
+            return value.rjust(self.size, sep)
+        return value.ljust(self.size, sep)
 
     def json(self):
         vals = dict(

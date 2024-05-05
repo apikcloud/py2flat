@@ -12,3 +12,7 @@ class ExceededSize(Py2flatException):
 
 class RequiredElementMissing(Py2flatException):
     pass
+
+
+class ElementsNumberIncorrect(Py2flatException):
+    """incorrect number of elements."""

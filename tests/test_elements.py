@@ -9,8 +9,7 @@ def element_1():
     return Element(
         name="ID",
         string="Identifier",
-        position=1,
-        length=3,
+        size=3,
         required=True,
         default="IDX",
     )
@@ -21,8 +20,7 @@ def element_2():
     return Element(
         name="Name",
         string="Name",
-        position=11,
-        length=10,
+        size=10,
         required=True,
     )
 
@@ -32,8 +30,7 @@ def element_3():
     return Element(
         name="Description",
         string="Description",
-        position=22,
-        length=10,
+        size=10,
     )
 
 
@@ -42,8 +39,7 @@ def element_4():
     return Element(
         name="Number",
         string="Number",
-        position=33,
-        length=20,
+        size=20,
         required=True,
         ttype="int",
         converter="X 1 000",
@@ -114,8 +110,7 @@ def test_parse_element_with_converter(value, result):
     element = Element(
         name="Number",
         string="Number",
-        position=1,
-        length=10,
+        size=10,
         ttype="int",
         converter="X 1 000",
         justify="right",
@@ -142,8 +137,7 @@ def test_dump_element_with_converter(value, result):
     element = Element(
         name="Number",
         string="Number",
-        position=1,
-        length=10,
+        size=10,
         ttype="int",
         converter="X 1 000",
         justify="right",

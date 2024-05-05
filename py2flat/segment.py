@@ -4,6 +4,7 @@ import struct
 from dataclasses import dataclass, field
 
 from py2flat.element import Element
+from py2flat.exceptions import ElementsNumberIncorrect
 from py2flat.utils import DEFAULT_SEPARATOR
 
 _logger = logging.getLogger(__name__)
@@ -20,10 +21,8 @@ class Segment:
     __exclude__ = ["elements", "by_name"]
 
     def __post_init__(self) -> None:
-        sorted(self.elements, key=lambda vals: vals["position"])
         self.elements = [
-            Element(number=index, **vals)
-            for index, vals in enumerate(self.elements, start=1)
+            Element(start=index, **vals) for index, vals in enumerate(self.elements)
         ]
         self.by_name = {element.name: element for element in self.elements}
 
@@ -37,19 +36,15 @@ class Segment:
 
     @property
     def size(self) -> int:
-        return self.elements[-1].end
+        return sum([element.size for element in self.elements])
 
     @property
     def fieldwidths(self) -> str:
-        # lengths = [element.length for element in self.elements]
+        # lengths = [element.size for element in self.elements]
         # fieldwidths = " ".join(
         #     "{}{}".format(abs(fw), "x" if fw < 0 else "s") for fw in lengths
         # )
-        return " ".join([f"{element.length}s" for element in self.elements])
-
-    def struct(self) -> list[dict] | dict:
-        elements = {element.name: element.default or "" for element in self.elements}
-        return [elements] if self.multiple else elements
+        return " ".join([f"{element.size}s" for element in self.elements])
 
     def unpack(self, buffer: bytes) -> list[str]:
         """Split"""
@@ -58,9 +53,9 @@ class Segment:
             for item in struct.Struct(self.fieldwidths).unpack_from(buffer)
         ]
 
-    def parse(self, values: list) -> list:
+    def parse(self, values: list) -> list | ElementsNumberIncorrect:
         if len(values) != len(self.elements):
-            raise ValueError("Inconsistent number of elements")
+            raise ElementsNumberIncorrect()
 
         return [element.parse(value) for element, value in zip(self.elements, values)]
 
@@ -84,8 +79,8 @@ class Segment:
         for key, value in vals.items():
             self.by_name[key].set_value(value)
 
-    def dump(self, separator: str = DEFAULT_SEPARATOR) -> str:
-        return "".join([element.dump(separator) for element in self.elements])
+    def dump(self, fill: str = DEFAULT_SEPARATOR) -> str:
+        return "".join([element.dump(fill) for element in self.elements])
 
     def json(self):
         vals = dict(

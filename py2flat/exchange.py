@@ -18,6 +18,4 @@ class Exchange:
         self.segments.append(seg)
 
     def dump(self) -> str:
-        return "\n".join(
-            [seg.dump(separator=self.schema.separator) for seg in self.segments]
-        )
+        return "\n".join([seg.dump(fill=self.schema.fill) for seg in self.segments])

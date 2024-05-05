@@ -23,7 +23,7 @@ class Schema:
     method: str = "first_3_letters"
     raise_if_unknown_segment: bool = False
     skip_null_value: bool = True
-    separator: str = DEFAULT_SEPARATOR
+    fill: str = DEFAULT_SEPARATOR  # filling character
 
     __exclude__ = ["segments", "by_identifier", "by_name"]
 
@@ -47,9 +47,8 @@ class Schema:
         return list(set(identifiers).difference(set(seg_identifiers)))
 
     def _unpack_identifier(self, lines):
-        # TODO: Maybe there is another method ?
         if self.method != "first_3_letters":
-            raise ValueError(f"Unknow method '{self.method}'")
+            raise NotImplementedError(f"Unknow method '{self.method}'")
 
         fformat = "3s"
         unpack = struct.Struct(fformat).unpack_from
@@ -111,7 +110,7 @@ class Schema:
         return data
 
     def read_file(self, filepath: str) -> dict:
-        """Public method te parse content from filepath"""
+        """Public method to parse content from filepath"""
         if not os.path.isfile(filepath):
             raise FileNotFoundError()
 
@@ -121,14 +120,14 @@ class Schema:
         return self._parse(content)
 
     def read_str(self, content: str) -> dict:
-        """Public method te parse content from string"""
+        """Public method to parse content from string"""
         if isinstance(content, str):
             content = bytes(content, "utf-8")
 
         return self._parse(content)
 
     def read_bytes(self, content: bytes) -> dict:
-        """Public method te parse content from bytes"""
+        """Public method to parse content from bytes"""
         if not isinstance(content, bytes):
             raise TypeError("Bytes needed.")
 
