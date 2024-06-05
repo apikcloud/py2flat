@@ -5,6 +5,7 @@ import logging
 import os
 import struct
 from dataclasses import dataclass, field
+from typing import Literal
 
 from py2flat.segment import Segment
 from py2flat.utils import DEFAULT_SEPARATOR
@@ -20,7 +21,7 @@ class Schema:
     segments: list[Segment]
     by_identifier: dict = field(default_factory=dict)
     by_name: dict = field(default_factory=dict)
-    method: str = "first_3_letters"
+    method: Literal["first-1", "first-3"] = "first-3"
     raise_if_unknown_segment: bool = False
     skip_null_value: bool = True
     fill: str = DEFAULT_SEPARATOR  # filling character
@@ -47,10 +48,13 @@ class Schema:
         return list(set(identifiers).difference(set(seg_identifiers)))
 
     def _unpack_identifier(self, lines):
-        if self.method != "first_3_letters":
+        if self.method == "first-1":
+            fformat = "1s"
+        elif self.method == "first-3":
+            fformat = "3s"
+        else:
             raise NotImplementedError(f"Unknow method '{self.method}'")
 
-        fformat = "3s"
         unpack = struct.Struct(fformat).unpack_from
         return list(map(lambda s: s[0].decode(), map(unpack, lines)))
 
@@ -104,8 +108,6 @@ class Schema:
                 data[seg.name].append(values)
             else:
                 data[seg.name].update(values)
-
-            print(values)
 
         return data
 

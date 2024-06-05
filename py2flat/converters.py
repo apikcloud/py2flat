@@ -63,6 +63,10 @@ class ConverterDate8(Converter):
         return item.strftime("%Y%m%d")
 
 
+class ConverterDateAAAAMMJJ(ConverterDate8):
+    _name = "AAAAMMJJ"
+
+
 class Converter13v2(Converter):
     """eg. 0000000000000,00"""
 
