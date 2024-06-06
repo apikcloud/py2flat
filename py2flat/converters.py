@@ -79,3 +79,45 @@ class Converter13v2(Converter):
     @staticmethod
     def output(item: float) -> str:
         return f"{item:.2f}".replace(".", ",").rjust(16, "0")
+
+
+class Converter9v5(Converter):
+    """eg. 000000000.00000"""
+
+    _name = "9v5"
+
+    @staticmethod
+    def input(item: str) -> float:
+        return float(item.replace(",", "."))
+
+    @staticmethod
+    def output(item: float) -> str:
+        return f"{item:.5f}".replace(".", ",").rjust(16, "0")
+
+
+class Converter17v2(Converter):
+    """eg. 00000000000000000.00"""
+
+    _name = "17v2"
+
+    @staticmethod
+    def input(item: str) -> float:
+        return float(item.replace(",", "."))
+
+    @staticmethod
+    def output(item: float) -> str:
+        return f"{item:.2f}".replace(".", ",").rjust(16, "0")
+
+
+class Converter12v2(Converter):
+    """eg. 000000000000.00"""
+
+    _name = "12v2"
+
+    @staticmethod
+    def input(item: str) -> float:
+        return float(item.replace(",", "."))
+
+    @staticmethod
+    def output(item: float) -> str:
+        return f"{item:.2f}".replace(".", ",").rjust(16, "0")
