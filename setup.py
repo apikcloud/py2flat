@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="py2flat",
-    version="0.1.0",
+    version="0.2.0",
     description="Python parser",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
@@ -25,8 +25,14 @@ setup(
     ],
     packages=find_packages(),
     include_package_data=True,
-    install_requires=[],
+    install_requires=[
+        "click>=8.1.6",
+    ],
     python_requires=">=3.10",
     extras_require={},
-    entry_points={},
+    entry_points={
+        "console_scripts": [
+            "py2flat = py2flat.cli:cli",
+        ],
+    },
 )

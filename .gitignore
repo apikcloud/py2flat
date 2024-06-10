@@ -161,4 +161,4 @@ cython_debug/
 
 data/
 schemas/
-test*.py
+.local/

@@ -1,7 +1,7 @@
 import pytest
 
 from py2flat.element import Element
-from py2flat.exceptions import ExceededSize
+from py2flat.exceptions import ExceededSize, RequiredElementMissing
 
 
 @pytest.fixture
@@ -12,6 +12,8 @@ def element_1():
         size=3,
         required=True,
         default="IDX",
+        start=10,
+        ttype="xxx",
     )
 
 
@@ -22,6 +24,7 @@ def element_2():
         string="Name",
         size=10,
         required=True,
+        start=0,
     )
 
 
@@ -31,6 +34,7 @@ def element_3():
         name="Description",
         string="Description",
         size=10,
+        start=0,
     )
 
 
@@ -44,7 +48,20 @@ def element_4():
         ttype="int",
         converter="X 1 000",
         justify="right",
+        start=0,
     )
+
+
+def test_element_1(element_1):
+    assert element_1.end == 13
+
+    with pytest.raises(KeyError):
+        with pytest.raises(RequiredElementMissing):
+            assert element_1.parse("123") == "xxx"
+
+    element_1.required = False
+
+    assert element_1.parse("") == element_1.default
 
 
 def test_dump_element_1(element_1):
@@ -60,9 +77,8 @@ def test_dump_element_2(element_2):
 def test_parse_element_3(element_3):
     assert element_3.parse("   Lorem ") == "Lorem"
 
-    with pytest.raises(ExceededSize) as excinfo:
+    with pytest.raises(ExceededSize):
         element_3.parse("Lorem ipsum dolor sit amet.")
-        assert str(excinfo.value) == ""
 
     assert element_3.parse("Lorem ipsum dolor sit amet.", truncate=True) == "Lorem ipsu"
 
@@ -114,6 +130,7 @@ def test_parse_element_with_converter(value, result):
         ttype="int",
         converter="X 1 000",
         justify="right",
+        start=0,
     )
     assert element.parse(value, truncate=True) == result
 
@@ -141,6 +158,7 @@ def test_dump_element_with_converter(value, result):
         ttype="int",
         converter="X 1 000",
         justify="right",
+        start=0,
     )
     element.set_value(value)
     assert element.dump() == result

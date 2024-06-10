@@ -1,0 +1,165 @@
+{
+    "collection":"DESADV",
+    "name":"Example 1",
+    "version":"1.0",
+    "method": "first-1",
+    "segments":[
+       {
+          "name":"Header",
+          "required":true,
+          "elements":[
+             {
+                "name":"Field1",
+                "string":"Field 01",
+                "size":1,
+                "required":true,
+                "default":"E"
+             },
+             {
+                "name":"Field2",
+                "string":"Field 02",
+                "size":4
+             },
+             {
+                "name":"Field3",
+                "string":"Field 03",
+                "size":8,
+                "converter":"AAAAMMJJ"
+             },
+             {
+                "name":"Field4",
+                "string":"Field 04",
+                "size":20
+             },
+             {
+                "name":"Field5",
+                "string":"Field 05",
+                "size":15,
+                "required": true
+             },
+             {
+                "name":"Field6",
+                "string":"Field 06",
+                "size":3
+             },
+             {
+                "name":"Field7",
+                "string":"Field 07",
+                "size":90
+             },
+             {
+                "name":"Field8",
+                "string":"Field 08",
+                "size":90
+             },
+             {
+                "name":"Field9",
+                "string":"Field 09",
+                "size":90
+             },
+             {
+                "name":"Field10",
+                "string":"Field 10",
+                "size":90
+             },
+             {
+                "name":"Field11",
+                "string":"Blank field",
+                "size":2
+             }
+          ]
+       },
+       {
+          "name":"Lines",
+          "required":true,
+          "multiple":true,
+          "elements":[
+             {
+                "name":"LinesHeader",
+                "string":"Constant",
+                "size":1,
+                "required":true,
+                "default":"L"
+             },
+             {
+                "name":"Field1",
+                "string":"Field 01",
+                "size":20,
+                "required":true
+             },
+             {
+                "name":"Field2",
+                "string":"Field 02",
+                "size":8,
+                "ttype": "int",
+                "required":true
+             },
+             {
+                "name":"Field3",
+                "string":"Field 03",
+                "size":20,
+                "required":true
+             },
+             {
+                "name":"Field4",
+                "string":"Field 04",
+                "size":3
+             },
+             {
+                "name":"Field5",
+                "string":"Field 05",
+                "size":15,
+                "ttype": "int",
+                "required":true
+             },
+             {
+                "name":"Field6",
+                "string":"Field 06",
+                "size":1,
+                "required":true,
+                "default":"2"
+             },
+             {
+                "name":"Field7",
+                "string":"Field 07",
+                "size":90
+             },
+             {
+                "name":"Field8",
+                "string":"Field 08",
+                "size":90
+             },
+             {
+                "name":"Field9",
+                "string":"Field 09",
+                "size":20
+             },
+             {
+                "name":"Field10",
+                "string":"Field 10",
+                "size":20
+             }
+          ]
+       },
+       {
+          "name":"LotNumber",
+          "required":false,
+          "multiple":true,
+          "parent": "Lines",
+          "elements":[
+             {
+                "name":"LotNumberHeader",
+                "string":"Lot number",
+                "size":1,
+                "required":true,
+                "default":"N"
+             },
+             {
+                "name":"Field1",
+                "string":"Comment",
+                "size":250
+             }
+          ]
+       }
+    ]
+ }
