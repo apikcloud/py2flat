@@ -5,7 +5,7 @@ import logging
 import os
 import struct
 from dataclasses import dataclass, field
-from typing import Literal
+from typing import Any, Generator, List, Literal
 
 from py2flat.segment import Segment
 from py2flat.utils import DEFAULT_SEPARATOR
@@ -36,8 +36,22 @@ class Schema:
         self.by_identifier = {seg.identifier: seg for seg in self.segments}
         self.by_name = {seg.name: seg for seg in self.segments}
 
-    def struct(self):
-        return {seg.name: seg.struct() for seg in self.segments}
+    @property
+    def relations(self):
+        res = {}
+        for seg in self.segments:
+            if seg.parent:
+                res.setdefault(seg.parent, [])
+                res[seg.parent].append(seg.name)
+
+        return res
+
+    @property
+    def count(self):
+        return len(self.segments)
+
+    # def struct(self):
+    #     return {seg.name: seg.struct() for seg in self.segments}
 
     def _compare_identifiers(self, identifiers, required_only=False):
         if required_only:
@@ -79,6 +93,9 @@ class Schema:
         if self.raise_if_unknown_segment and diff:
             raise ValueError(f"Unknow segments: {diff}")
 
+        prev_seg = None
+        last_item = None
+
         # Unpack values and parse
         for identifier, line in zip(identifiers, lines):
             if identifier not in self.by_identifier:
@@ -90,8 +107,9 @@ class Schema:
 
             # Compare line and segment length
             if len(line) < seg.size:
+                _logger.warning(line)
                 raise ValueError(
-                    f"Line length is incorrect (actual:{len(line)} vs needed:{seg.size})."
+                    f"[{seg.name}] Line length is incorrect (actual:{len(line)} vs needed:{seg.size})."
                 )
 
             values = seg.unpack(line)
@@ -103,15 +121,42 @@ class Schema:
 
             values = seg.asdict(values, skip=self.skip_null_value)
 
-            data.setdefault(seg.name, [] if seg.multiple else {})
-            if seg.multiple:
-                data[seg.name].append(values)
+            # Nested lines
+            if seg.parent:
+                if not prev_seg or not last_item:
+                    raise ValueError("Orphan line")
+
+                if isinstance(last_item, list):
+                    last_item = last_item[-1]
+
+                last_item.setdefault(seg.name, [] if seg.multiple else {})
+                if seg.multiple:
+                    last_item[seg.name].append(values)
+                else:
+                    last_item[seg.name].update(values)
             else:
-                data[seg.name].update(values)
+                data.setdefault(seg.name, [] if seg.multiple else {})
+                if seg.multiple:
+                    data[seg.name].append(values)
+                else:
+                    data[seg.name].update(values)
+
+                # Define shortcuts to next iteration
+                prev_seg = seg
+                last_item = data[seg.name]
 
         return data
 
-    def read_file(self, filepath: str) -> dict:
+    def __parse(self, content: bytes, silent: bool = False) -> dict:
+        if not silent:
+            return self._parse(content)
+
+        try:
+            return self._parse(content)
+        except Exception as error:
+            return {"error": str(error)}
+
+    def read_file(self, filepath: str, silent: bool = False) -> dict:
         """Public method to parse content from filepath"""
         if not os.path.isfile(filepath):
             raise FileNotFoundError()
@@ -119,30 +164,53 @@ class Schema:
         with open(filepath, "rb") as file:
             content = file.read()
 
-        return self._parse(content)
+        return self.__parse(content, silent=silent)
 
-    def read_str(self, content: str) -> dict:
+    def read_str(self, content: str, silent: bool = False) -> dict:
         """Public method to parse content from string"""
         if isinstance(content, str):
             content = bytes(content, "utf-8")
 
-        return self._parse(content)
+        return self.__parse(content, silent=silent)
 
-    def read_bytes(self, content: bytes) -> dict:
+    def read_bytes(self, content: bytes, silent: bool = False) -> dict:
         """Public method to parse content from bytes"""
         if not isinstance(content, bytes):
             raise TypeError("Bytes needed.")
 
-        return self._parse(content)
+        return self.__parse(content, silent=silent)
 
-    # def create_exchange(self) -> "Exchange":
-    #     return Exchange(schema=self)
+    def read_dir(self, path: str, silent: bool = False) -> Generator[Any, Any, Any]:
+        if not os.path.exists(path):
+            raise FileNotFoundError()
 
-    def create_segment(self, identifier: str, vals: dict) -> "Segment":
+        for root, _, files in os.walk(path, topdown=True):
+            filepaths = [os.path.join(root, file) for file in files]
+
+        for filepath in filepaths:
+            yield os.path.basename(filepath), self.read_file(filepath, silent=silent)
+
+    def create_segment(self, identifier: str, vals: dict) -> List["Segment"]:
+        res = []
         seg = self.by_name[identifier]
         new_seg = copy.deepcopy(seg)
+
+        # Exclude children
+        relations = self.relations
+        if seg.name in relations:
+            children = {k: vals.pop(k) for k in relations[seg.name]}
+
+            for child, values in children.items():
+                child_seg = self.by_name[child]
+                if child_seg.multiple and isinstance(values, list):
+                    for child_vals in values:
+                        res += self.create_segment(child, child_vals)
+                else:
+                    res += self.create_segment(child, values)
+
         new_seg.set_values(**vals)
-        return new_seg
+        res.insert(0, new_seg)
+        return res
 
     def json(self):
         vals = dict(

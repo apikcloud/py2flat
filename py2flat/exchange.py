@@ -11,11 +11,11 @@ class Exchange:
 
     def set_header(self, **vals: dict) -> None:
         seg = self.schema.create_segment("Header", vals)
-        self.segments.insert(0, seg)
+        self.segments.insert(0, seg[0])
 
     def add_segment(self, identifier: str, vals: dict) -> None:
-        seg = self.schema.create_segment(identifier, vals)
-        self.segments.append(seg)
+        segments = self.schema.create_segment(identifier, vals)
+        self.segments += segments
 
     def dump(self) -> str:
         return "\n".join([seg.dump(fill=self.schema.fill) for seg in self.segments])

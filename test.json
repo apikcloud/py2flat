@@ -1,0 +1,876 @@
+[
+    {
+        "file": "FIXE_DESADV_SAGE_X3-4_CAD-CONNEXING_2024060417330732_2206.edi",
+        "content": {
+            "Header": {
+                "ChampEnTete1": "E",
+                "PRHFCY": "FR11",
+                "RCPDAT": "2024-06-04 00:00:00",
+                "BPSNUM": "T008205",
+                "CUR": "EUR"
+            },
+            "Lines": [
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POBE10-007600",
+                    "POPLIN": 1000,
+                    "ITMREF": "A317722",
+                    "UOM": "UN",
+                    "QTYUOM": 30,
+                    "TEXTE65": "2",
+                    "TEXTE92": "ALE-30H ESSENTIAL DESKPHONE",
+                    "YTRACKNO": "677258693",
+                    "LotNumber": [
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223808386"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223807642"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223808696"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER224105209"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223807893"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223810143"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223813829"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223808458"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223807626"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER224104617"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223808348"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223811187"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223807973"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223808507"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223809799"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223809787"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223811123"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER224101527"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223815910"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER224103411"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223810148"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223809992"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER224203779"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223810042"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223807570"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223807596"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223807563"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223807490"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223810507"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER224203603"
+                        }
+                    ]
+                },
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POBE10-007600",
+                    "POPLIN": 2000,
+                    "ITMREF": "A318087",
+                    "UOM": "UN",
+                    "QTYUOM": 30,
+                    "TEXTE65": "2",
+                    "TEXTE92": "ALE-10 MAGNETIC ALPHABETIC KEYBOARD",
+                    "YTRACKNO": "677258693",
+                    "LotNumber": [
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707847"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707886"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231708742"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707906"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707975"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231708070"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707912"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707962"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707977"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231708174"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707809"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707873"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707959"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707954"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707923"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707783"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707854"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231708305"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707860"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707838"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707925"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707849"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707867"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707949"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707815"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707950"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707788"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707905"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707820"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER231707961"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "file": "FIXE_DESADV_SAGE_X3-4_CAD-CONNEXING_2024060416333904_2844.edi",
+        "content": {
+            "Header": {
+                "ChampEnTete1": "E",
+                "PRHFCY": "FR11",
+                "RCPDAT": "2024-06-04 00:00:00",
+                "BPSNUM": "T008205",
+                "CUR": "EUR"
+            },
+            "Lines": [
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POFR10-058068",
+                    "POPLIN": 1000,
+                    "ITMREF": "A043739",
+                    "UOM": "UN",
+                    "QTYUOM": 1,
+                    "TEXTE65": "2",
+                    "TEXTE91": "JABRA 14201-10",
+                    "TEXTE92": "CABLE DHSG POUR SIEMENS; AASTRA; SN",
+                    "YTRACKNO": "2246303502534069",
+                    "LotNumber": [
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "0CYB2NK8O"
+                        }
+                    ]
+                },
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POFR10-058068",
+                    "POPLIN": 2000,
+                    "ITMREF": "A079249",
+                    "UOM": "UN",
+                    "QTYUOM": 1,
+                    "TEXTE65": "2",
+                    "TEXTE91": "JABRA 14163-00",
+                    "TEXTE92": "CABLE D'ALIMENTATION SECTEUR POUR B",
+                    "YTRACKNO": "2246303502534069"
+                }
+            ]
+        }
+    },
+    {
+        "file": "FIXE_DESADV_SAGE_X3-4_CAD-CONNEXING_2024060416332415_4893.edi",
+        "content": {
+            "Header": {
+                "ChampEnTete1": "E",
+                "PRHFCY": "FR11",
+                "RCPDAT": "2024-06-04 00:00:00",
+                "BPSNUM": "T008205",
+                "CUR": "EUR"
+            },
+            "Lines": [
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POFR10-058058",
+                    "POPLIN": 1000,
+                    "ITMREF": "A325414",
+                    "UOM": "UN",
+                    "QTYUOM": 3,
+                    "TEXTE65": "2",
+                    "TEXTE91": "JABRA 6599-833-309",
+                    "TEXTE92": "JABRA EVOLVE 65 SERIE SE, MS DUO US",
+                    "YTRACKNO": "1346303502534077",
+                    "LotNumber": [
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00296058545"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00296058514"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00296058512"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "file": "FIXE_DESADV_SAGE_X3-4_CAD-CONNEXING_2024060416334227_9488.edi",
+        "content": {
+            "Header": {
+                "ChampEnTete1": "E",
+                "PRHFCY": "FR11",
+                "RCPDAT": "2024-06-04 00:00:00",
+                "BPSNUM": "T008205",
+                "CUR": "EUR"
+            },
+            "Lines": [
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POBE10-007606",
+                    "POPLIN": 1000,
+                    "ITMREF": "A044240",
+                    "UOM": "UN",
+                    "QTYUOM": 1,
+                    "TEXTE65": "2",
+                    "TEXTE92": "POSTE 4019 URBAN GREY",
+                    "YTRACKNO": "817156281",
+                    "LotNumber": [
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "298602"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "file": "FIXE_DESADV_SAGE_X3-4_CAD-CONNEXING_2024060416333283_5158.edi",
+        "content": {
+            "Header": {
+                "ChampEnTete1": "E",
+                "PRHFCY": "FR11",
+                "RCPDAT": "2024-06-04 00:00:00",
+                "BPSNUM": "T008205",
+                "CUR": "EUR"
+            },
+            "Lines": [
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POFR10-058062",
+                    "POPLIN": 1000,
+                    "ITMREF": "A124541",
+                    "UOM": "UN",
+                    "QTYUOM": 10,
+                    "TEXTE65": "2",
+                    "TEXTE92": "BATTERIE DT690-3725-5614 - OMNITOUC",
+                    "YTRACKNO": "0243005701134043"
+                },
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POFR10-058062",
+                    "POPLIN": 2000,
+                    "ITMREF": "A081595",
+                    "UOM": "UN",
+                    "QTYUOM": 5,
+                    "TEXTE65": "2",
+                    "TEXTE92": "DECT PHONE  DT690  (AVEC CACHE BATT",
+                    "YTRACKNO": "0243005701134043"
+                }
+            ]
+        }
+    },
+    {
+        "file": "FIXE_DESADV_CONNEXING_INGRAM_2024060418534530_7784.edi",
+        "content": {
+            "Header": {
+                "ChampEnTete1": "E",
+                "PRHFCY": "FR11",
+                "RCPDAT": "2024-06-04 00:00:00",
+                "BPSNUM": "T007755",
+                "CUR": "EUR"
+            },
+            "Lines": [
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POFR10-058087",
+                    "POPLIN": 1000,
+                    "ITMREF": "CI70966",
+                    "UOM": "UN",
+                    "QTYUOM": 3,
+                    "TEXTE65": "2",
+                    "TEXTE91": "IPHONE 15 128GB BLACK 6.1IN    SMD",
+                    "YTRACKNO": "GR965198939FR",
+                    "YTRANSP": "CHRONOPOST",
+                    "LotNumber": [
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SKVQG2K56TT"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SL2GCP9GWW5"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SM43Y74LQWK"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "file": "FIXE_DESADV_SAGE_X3-4_CAD-CONNEXING_2024060511031718_9551.edi",
+        "content": {
+            "Header": {
+                "ChampEnTete1": "E",
+                "PRHFCY": "FR11",
+                "RCPDAT": "2024-06-05 00:00:00",
+                "BPSNUM": "T008205",
+                "CUR": "EUR"
+            },
+            "Lines": [
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POFR10-058072",
+                    "POPLIN": 1000,
+                    "ITMREF": "A092635",
+                    "UOM": "UN",
+                    "QTYUOM": 3,
+                    "TEXTE65": "2",
+                    "TEXTE91": "EPOS 1000529",
+                    "TEXTE92": "DW OFFICE ML",
+                    "YTRACKNO": "1346303502534682",
+                    "LotNumber": [
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "0383402306"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "0383402276"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "0383402305"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "file": "FIXE_DESADV_SAGE_X3-4_CAD-CONNEXING_2024060416332617_6522.edi",
+        "content": {
+            "Header": {
+                "ChampEnTete1": "E",
+                "PRHFCY": "FR11",
+                "RCPDAT": "2024-06-04 00:00:00",
+                "BPSNUM": "T008205",
+                "CUR": "EUR"
+            },
+            "Lines": [
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POBE10-007603",
+                    "POPLIN": 1000,
+                    "ITMREF": "A139978",
+                    "UOM": "UN",
+                    "QTYUOM": 3,
+                    "TEXTE65": "2",
+                    "TEXTE92": "CABLE SPECIFIQUE EHS POUR JABRA ENG",
+                    "YTRACKNO": "677258676",
+                    "LotNumber": [
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00286541263"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00286541262"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00286541216"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "file": "FIXE_DESADV_CONNEXING_INGRAM_2024053119533350_6246.edi",
+        "content": {
+            "Header": {
+                "ChampEnTete1": "E",
+                "PRHFCY": "FR11",
+                "RCPDAT": "2024-05-31 00:00:00",
+                "BPSNUM": "T007755",
+                "CUR": "EUR"
+            },
+            "Lines": [
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POFR10-058029",
+                    "POPLIN": 1000,
+                    "ITMREF": "Q711306",
+                    "UOM": "UN",
+                    "QTYUOM": 4,
+                    "TEXTE65": "2",
+                    "TEXTE91": "JABRA EVOLVE 40 MS STEREO      ACCS",
+                    "TEXTE92": "HD AUDIO MICROSOFT CERTIFIED",
+                    "YTRACKNO": "GR965125021FR",
+                    "YTRANSP": "CHRONOPOST",
+                    "LotNumber": [
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00292700101"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00292701774"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00292702804"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00292702829"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "file": "FIXE_DESADV_CONNEXING_INGRAM_2024053115370807_8065.edi",
+        "content": {
+            "Header": {
+                "ChampEnTete1": "E",
+                "PRHFCY": "FR11",
+                "RCPDAT": "2024-05-31 00:00:00",
+                "BPSNUM": "T007755",
+                "CUR": "EUR"
+            },
+            "Lines": [
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POFR10-058035",
+                    "POPLIN": 1000,
+                    "ITMREF": "CJ09425",
+                    "UOM": "UN",
+                    "QTYUOM": 10,
+                    "TEXTE65": "2",
+                    "TEXTE91": "TEMPERED GLASS DESIGNED FOR    ACCS",
+                    "TEXTE92": "GALAXY A54 5G",
+                    "YTRACKNO": "GR965112840FR",
+                    "YTRANSP": "CHRONOPOST"
+                },
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POFR10-058035",
+                    "POPLIN": 2000,
+                    "ITMREF": "CJ69831",
+                    "UOM": "UN",
+                    "QTYUOM": 1,
+                    "TEXTE65": "2",
+                    "TEXTE91": "ROG CETRA TRUE WIRELESS-       ACCS",
+                    "YTRACKNO": "GR965112840FR",
+                    "YTRANSP": "CHRONOPOST",
+                    "LotNumber": [
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "R8YHNB209318"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "file": "FIXE_DESADV_CONNEXING_INGRAM_2024053115370081_9370.edi",
+        "content": {
+            "Header": {
+                "ChampEnTete1": "E",
+                "PRHFCY": "FR11",
+                "RCPDAT": "2024-05-31 00:00:00",
+                "BPSNUM": "T007755",
+                "CUR": "EUR"
+            },
+            "Lines": [
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POFR10-058033",
+                    "POPLIN": 1000,
+                    "ITMREF": "CF08589",
+                    "UOM": "UN",
+                    "QTYUOM": 3,
+                    "TEXTE65": "2",
+                    "TEXTE91": "CLAVIER SIGNATURE K650         PERP",
+                    "TEXTE92": "GRAPHITE - FRA - CENTRAL",
+                    "YTRACKNO": "GR965112836FR",
+                    "YTRANSP": "CHRONOPOST"
+                },
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POFR10-058033",
+                    "POPLIN": 2000,
+                    "ITMREF": "CJ16764",
+                    "UOM": "UN",
+                    "QTYUOM": 2,
+                    "TEXTE65": "2",
+                    "TEXTE91": "245 BLK BLUETOOTH MOUSE        WRLS",
+                    "YTRACKNO": "GR965112836FR",
+                    "YTRANSP": "CHRONOPOST"
+                }
+            ]
+        }
+    },
+    {
+        "file": "FIXE_DESADV_SAGE_X3-4_CAD-CONNEXING_2024060512340594_9394.edi",
+        "content": {
+            "Header": {
+                "ChampEnTete1": "E",
+                "PRHFCY": "FR11",
+                "RCPDAT": "2024-06-05 00:00:00",
+                "BPSNUM": "T008205",
+                "CUR": "EUR"
+            },
+            "Lines": [
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POBE10-007606",
+                    "POPLIN": 2000,
+                    "ITMREF": "A317722",
+                    "UOM": "UN",
+                    "QTYUOM": 1,
+                    "TEXTE65": "2",
+                    "TEXTE92": "ALE-30H ESSENTIAL DESKPHONE",
+                    "YTRACKNO": "677258755",
+                    "LotNumber": [
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "SER223810332"
+                        }
+                    ]
+                },
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POBE10-007606",
+                    "POPLIN": 3000,
+                    "ITMREF": "A305326",
+                    "UOM": "UN",
+                    "QTYUOM": 1,
+                    "TEXTE65": "2",
+                    "TEXTE92": "EM200 SMART EXPANSION MODULE",
+                    "YTRACKNO": "677258755",
+                    "LotNumber": [
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "TPK231804407"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "file": "FIXE_DESADV_CONNEXING_INGRAM_2024060416381591_1582.edi",
+        "content": {
+            "Header": {
+                "ChampEnTete1": "E",
+                "PRHFCY": "FR11",
+                "RCPDAT": "2024-06-04 00:00:00",
+                "BPSNUM": "T007755",
+                "CUR": "EUR"
+            },
+            "Lines": [
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POFR10-058065",
+                    "POPLIN": 1000,
+                    "ITMREF": "Q711312",
+                    "UOM": "UN",
+                    "QTYUOM": 1,
+                    "TEXTE65": "2",
+                    "TEXTE91": "JABRA EVOLVE 40 UC MONO        ACCS",
+                    "TEXTE92": "HD AUDIO",
+                    "YTRACKNO": "GR965176730FR",
+                    "YTRANSP": "CHRONOPOST",
+                    "LotNumber": [
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00294770633"
+                        }
+                    ]
+                },
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POFR10-058065",
+                    "POPLIN": 2000,
+                    "ITMREF": "Q711313",
+                    "UOM": "UN",
+                    "QTYUOM": 1,
+                    "TEXTE65": "2",
+                    "TEXTE91": "JABRA EVOLVE 40 UC STEREO      ACCS",
+                    "TEXTE92": "HD AUDIO",
+                    "YTRACKNO": "GR965176730FR",
+                    "YTRANSP": "CHRONOPOST",
+                    "LotNumber": [
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00293880012"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "file": "FIXE_DESADV_CONNEXING_INGRAM_2024053114275351_2007.edi",
+        "content": {
+            "Header": {
+                "ChampEnTete1": "E",
+                "PRHFCY": "FR11",
+                "RCPDAT": "2024-05-31 00:00:00",
+                "BPSNUM": "T007755",
+                "CUR": "EUR"
+            },
+            "Lines": [
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POFR10-058040",
+                    "POPLIN": 1000,
+                    "ITMREF": "CJ57219",
+                    "UOM": "UN",
+                    "QTYUOM": 1,
+                    "TEXTE65": "2",
+                    "TEXTE91": "CORE-M5  4 64GO                SMD",
+                    "YTRACKNO": "GR965125287FR",
+                    "YTRANSP": "CHRONOPOST"
+                }
+            ]
+        }
+    },
+    {
+        "file": "FIXE_DESADV_CONNEXING_INGRAM_2024060321120325_9034.edi",
+        "content": {
+            "Header": {
+                "ChampEnTete1": "E",
+                "PRHFCY": "FR11",
+                "RCPDAT": "2024-06-03 00:00:00",
+                "BPSNUM": "T007755",
+                "CUR": "EUR"
+            },
+            "Lines": [
+                {
+                    "ChampArt1": "L",
+                    "POHNUM": "POFR10-058061",
+                    "POPLIN": 1000,
+                    "ITMREF": "Q713322",
+                    "UOM": "UN",
+                    "QTYUOM": 10,
+                    "TEXTE65": "2",
+                    "TEXTE91": "JABRA EVOLVE2 65               ACCS",
+                    "TEXTE92": "LINK380A MS STEREO BLACK",
+                    "YTRACKNO": "GR965163395FR",
+                    "YTRANSP": "CHRONOPOST",
+                    "LotNumber": [
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00359215200"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00359215205"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00359226435"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00359226436"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00359226439"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00359226482"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00359226516"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00359226609"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00359226861"
+                        },
+                        {
+                            "ChampLot1": "N",
+                            "YTEXTE": "00359288527"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

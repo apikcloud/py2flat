@@ -17,6 +17,7 @@ class Segment:
     by_name: dict = field(default_factory=dict)
     required: bool = False
     multiple: bool = False
+    parent: str = None
 
     __exclude__ = ["elements", "by_name"]
 

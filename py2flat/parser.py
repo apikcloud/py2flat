@@ -13,6 +13,13 @@ class Parser(Schema):
     def from_str(cls, content: str) -> "Schema":
         """Load JSON Schema from string."""
 
+        data = json.loads(content)
+        return Schema(**data)
+
+    @classmethod
+    def from_dict(cls, content: dict) -> "Schema":
+        """Load JSON Schema from Python dict."""
+
         return Schema(**content)
 
     @classmethod
@@ -20,9 +27,9 @@ class Parser(Schema):
         """Load JSON Schema from filepath."""
 
         with open(filepath) as file:
-            content = json.load(file)
+            data = json.load(file)
 
-        return Schema(**content)
+        return Schema(**data)
 
     def create_exchange(self) -> "Exchange":
         return Exchange(schema=self)

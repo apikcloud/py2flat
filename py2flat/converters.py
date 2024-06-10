@@ -7,14 +7,18 @@ class Converter:
 
     @classmethod
     def list(cls):
+        """List subclasses"""
         return list(cls._subclasses.keys())
 
     @classmethod
     def by_name(cls, name):
+        """Get subclass by name"""
         return cls._subclasses[name]
 
     def __init_subclass__(cls):
-        Converter._subclasses[cls._name] = cls
+        """Keeps track of all subclass instantiations"""
+        if cls._name:
+            Converter._subclasses[cls._name] = cls
 
     @staticmethod
     def input(item):
@@ -25,99 +29,104 @@ class Converter:
         raise NotImplementedError()
 
 
-class ConverterFloatToInteger1(Converter):
-    _name = "X 1 000"
-
-    @staticmethod
-    def input(item: int) -> float:
-        return float(item / 1000)
-
-    @staticmethod
-    def output(item: float) -> int:
-        return int(item * 1000)
+# Base converters
 
 
-class ConverterFloatToInteger2(Converter):
-    _name = "X 10 000"
+class BaseInteger(Converter):
+    _multiplier = None
 
-    @staticmethod
-    def input(item: int) -> float:
-        return float(item / 10000)
+    @classmethod
+    def input(cls: Converter, item: int) -> float:
+        return float(item / cls._multiplier)
 
-    @staticmethod
-    def output(item: float) -> int:
-        return int(item * 10000)
-
-
-class ConverterDate8(Converter):
-    """Convert YYYYMMDD to datetime object"""
-
-    _name = "SSAAMMJJ"
-
-    @staticmethod
-    def input(item: str) -> datetime:
-        return datetime.strptime(item, "%Y%m%d")
-
-    @staticmethod
-    def output(item: datetime) -> str:
-        return item.strftime("%Y%m%d")
+    @classmethod
+    def output(cls: Converter, item: float) -> int:
+        return int(item * cls._multiplier)
 
 
-class ConverterDateAAAAMMJJ(ConverterDate8):
-    _name = "AAAAMMJJ"
+class BaseFloat(Converter):
+    """eg. 000000000.00000"""
 
-
-class Converter13v2(Converter):
-    """eg. 0000000000000,00"""
-
-    _name = "13v2"
+    _format = None
+    _length = None
+    _fill = "0"
 
     @staticmethod
     def input(item: str) -> float:
         return float(item.replace(",", "."))
 
-    @staticmethod
-    def output(item: float) -> str:
-        return f"{item:.2f}".replace(".", ",").rjust(16, "0")
+    @classmethod
+    def output(cls: Converter, item: float) -> str:
+        return cls._format.format(item).replace(".", ",").rjust(cls._length, cls._fill)
 
 
-class Converter9v5(Converter):
+class BaseDate(Converter):
+    _format = None
+
+    @classmethod
+    def input(cls: Converter, item: str) -> datetime:
+        return datetime.strptime(item, cls._format)
+
+    @classmethod
+    def output(cls: Converter, item: datetime) -> str:
+        return item.strftime(cls._format)
+
+
+# Converters
+
+
+class ConverterFloatToInteger1(BaseInteger):
+    """x1000 Converter, float to integer"""
+
+    _name = "X 1 000"
+    _multiplier = 1000
+
+
+class ConverterFloatToInteger2(BaseInteger):
+    """x10000 Converter, float to integer"""
+
+    _name = "X 10 000"
+    _multiplier = 10000
+
+
+class Converter9v5(BaseFloat):
     """eg. 000000000.00000"""
 
     _name = "9v5"
-
-    @staticmethod
-    def input(item: str) -> float:
-        return float(item.replace(",", "."))
-
-    @staticmethod
-    def output(item: float) -> str:
-        return f"{item:.5f}".replace(".", ",").rjust(16, "0")
+    _format = "{:.5f}"
+    _length = 15
 
 
-class Converter17v2(Converter):
-    """eg. 00000000000000000.00"""
-
-    _name = "17v2"
-
-    @staticmethod
-    def input(item: str) -> float:
-        return float(item.replace(",", "."))
-
-    @staticmethod
-    def output(item: float) -> str:
-        return f"{item:.2f}".replace(".", ",").rjust(16, "0")
-
-
-class Converter12v2(Converter):
+class Converter12v2(BaseFloat):
     """eg. 000000000000.00"""
 
     _name = "12v2"
+    _format = "{:.2f}"
+    _length = 15
 
-    @staticmethod
-    def input(item: str) -> float:
-        return float(item.replace(",", "."))
 
-    @staticmethod
-    def output(item: float) -> str:
-        return f"{item:.2f}".replace(".", ",").rjust(16, "0")
+class Converter13v2(BaseFloat):
+    """eg. 0000000000000,00"""
+
+    _name = "13v2"
+    _format = "{:.2f}"
+    _length = 16
+
+
+class Converter17v2(BaseFloat):
+    """eg. 00000000000000000.00"""
+
+    _name = "17v2"
+    _format = "{:.2f}"
+    _length = 20
+
+
+class ConverterDate1(BaseDate):
+    """Convert YYYYMMDD to datetime object"""
+
+    _name = "SSAAMMJJ"
+    _format = "%Y%m%d"
+
+
+class ConverterDate2(ConverterDate1):
+    _name = "AAAAMMJJ"

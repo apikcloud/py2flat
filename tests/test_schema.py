@@ -1,74 +1,51 @@
 import json
 
-from py2flat.schemas import Schema
+import pytest
 
-json_schema = {
-    "name": "test",
-    "collection": "test",
-    "version": "1.0",
-    "method": "first_3_letters",
-    "raise_if_unknown_segment": False,
-    "skip_null_value": True,
-    "separator": "space",
-    "segments": [
-        {
-            "name": "Header",
-            "required": False,
-            "multiple": False,
-            "elements": [
-                {
-                    "name": "ID",
-                    "string": "Identifier",
-                    "position": 1,
-                    "length": 3,
-                    "number": 1,
-                    "justify": "left",
-                    "required": True,
-                    "default": "ENT",
-                    "ttype": "str",
-                },
-                {
-                    "name": "Name",
-                    "string": "Name",
-                    "position": 4,
-                    "length": 20,
-                    "number": 2,
-                    "justify": "left",
-                    "required": True,
-                    "ttype": "str",
-                },
-            ],
-        }
-    ],
-}
+from py2flat.parser import Parser
 
 
-def test_create_schema():
-    schema = Schema(
-        name="test",
-        collection="test",
-        version="1.0",
-        segments=[
-            dict(
-                name="Header",
-                elements=[
-                    dict(
-                        name="ID",
-                        string="Identifier",
-                        position=1,
-                        length=3,
-                        required=True,
-                        default="ENT",
-                    ),
-                    dict(
-                        name="Name",
-                        string="Name",
-                        position=4,
-                        length=20,
-                        required=True,
-                    ),
+@pytest.fixture
+def schema_1():
+    json_schema = {
+        "name": "test",
+        "collection": "test",
+        "version": "1.0",
+        "raise_if_unknown_segment": False,
+        "skip_null_value": True,
+        "segments": [
+            {
+                "name": "Header",
+                "required": False,
+                "multiple": False,
+                "elements": [
+                    {
+                        "name": "ID",
+                        "string": "Identifier",
+                        "size": 3,
+                        "justify": "left",
+                        "required": True,
+                        "default": "ENT",
+                        "ttype": "str",
+                    },
+                    {
+                        "name": "Name",
+                        "string": "Name",
+                        "size": 20,
+                        "justify": "left",
+                        "required": True,
+                        "ttype": "str",
+                    },
                 ],
-            )
+            }
         ],
-    )
-    assert schema.json() == json.dumps(json_schema, indent=4)
+    }
+    return json.dumps(json_schema)
+
+
+def test_read_schema(schema_1):
+    schema = Parser.from_str(schema_1)
+
+    assert schema.method == "first-3"
+    assert schema.count == 1
+    assert list(schema.by_name.keys()) == ["Header"]

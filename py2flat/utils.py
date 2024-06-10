@@ -1,3 +1,8 @@
+import json
+from datetime import date, datetime
+from json import JSONEncoder
+from typing import Any
+
 PYTHON_TYPES = {
     "int": int,
     "float": float,
@@ -6,7 +11,14 @@ PYTHON_TYPES = {
 DEFAULT_SEPARATOR = "space"
 
 
-def size_of(item: str | int | float) -> int:
+class DateTimeEncoder(JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, (date, datetime)):
+            # return obj.isoformat()
+            return str(obj)
+
+
+def size_of(item: Any) -> int:
     """Return size of any values"""
     if item is None:
         return 0
@@ -17,5 +29,12 @@ def size_of(item: str | int | float) -> int:
     return len(item)
 
 
-def is_equal(value: str | int | float, length) -> bool:
+def is_equal(value: Any, length) -> bool:
+    if isinstance(value, datetime):
+        return True
     return not bool(size_of(value) > length)
+
+
+def json_dump(data):
+    """Shortcut to json.dumps with custom encoder"""
+    return json.dumps(data, indent=4, cls=DateTimeEncoder)
