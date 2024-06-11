@@ -62,9 +62,9 @@ class Segment:
 
     def check(self, values: list) -> bool:
         return [
-            bool(value)
+            element.name
             for element, value in zip(self.elements, values)
-            if element.required
+            if element.required and not value
         ]
 
     def asdict(self, values: list[dict], skip: bool = False) -> dict:

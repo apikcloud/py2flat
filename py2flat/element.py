@@ -38,6 +38,8 @@ class Element:
     ) -> str | int | float | ExceededSize:
         """Parse raw value according to element configuration and return the result."""
 
+        raw_value = value
+
         if not is_equal(value, self.size):
             if not truncate:
                 raise ExceededSize(f"{self.name}: '{value}'")
@@ -48,6 +50,8 @@ class Element:
         if not value:
             return self.default
 
+        _logger.debug("Step 1: %s", value)
+
         # 2. Cast to correct Python format
         try:
             value = PYTHON_TYPES[self.ttype](value)
@@ -55,6 +59,8 @@ class Element:
             if self.required:
                 raise RequiredElementMissing(f"{self.name}: {error}")
             return self.default
+
+        _logger.debug("Step 2: %s", value)
 
         # 3. Apply conversion if needed
         if self.converter:
@@ -69,6 +75,7 @@ class Element:
                     RequiredElementMissing(f"{self.name}: {error}")
                 return self.default
 
+        _logger.debug("%s -> %s", raw_value, value)
         return value
 
     def set_value(

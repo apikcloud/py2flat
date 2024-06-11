@@ -113,11 +113,14 @@ class Schema:
                 )
 
             values = seg.unpack(line)
+            _logger.debug("Raw values: %r", values)
             values = seg.parse(values)
 
             # TODO: Is additional control really necessary?
-            # if not all(seg.check(values)):
-            #     raise ValueError("Missing required values.")
+            if seg.check(values):
+                elements = ", ".join(seg.check(values))
+                _logger.error("Missing values for: %s", elements)
+                raise ValueError("Missing required values.")
 
             values = seg.asdict(values, skip=self.skip_null_value)
 
