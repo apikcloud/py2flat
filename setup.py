@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="py2flat",
-    version="0.2.1",
+    version="0.3.0",
     description="Python parser",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
@@ -27,6 +27,7 @@ setup(
     include_package_data=True,
     install_requires=[
         "click>=8.1.6",
+        "unidecode",
     ],
     python_requires=">=3.10",
     extras_require={},

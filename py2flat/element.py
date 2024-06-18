@@ -3,6 +3,8 @@ import logging
 from dataclasses import dataclass
 from typing import Any, Literal
 
+import unidecode
+
 from py2flat.converters import Converter
 from py2flat.exceptions import ExceededSize, RequiredElementMissing
 from py2flat.utils import DEFAULT_SEPARATOR, PYTHON_TYPES, is_equal
@@ -107,6 +109,10 @@ class Element:
 
         if self.converter:
             value = Converter.by_name(self.converter).output(value)
+
+        # TODO: add an option to escape accented characters
+        if isinstance(value, str):
+            value = unidecode.unidecode(value)
 
         value = str(value)
 
