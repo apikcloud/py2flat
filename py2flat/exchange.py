@@ -1,15 +1,12 @@
 from collections import Counter
 
 from py2flat.schemas import Schema
-from py2flat.segment import Segment
 
 
 class Exchange:
-    schema: Schema
-    segments: list[Segment] = []
-
     def __init__(self, schema: Schema) -> None:
         self.schema = schema
+        self.segments = []
 
     def set_header(self, **vals: dict) -> None:
         seg = self.schema.create_segment("Header", vals)
